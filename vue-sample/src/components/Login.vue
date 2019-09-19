@@ -28,12 +28,12 @@ export default {
         }
 
         axios.post("/api/login", data)
-          .then((response) => {
-            console.log("Logged in")
+          .then(() => {
+            // console.log("Logged in")
             router.push("/dashboard")
           })
-          .catch((errors) => {
-            console.log("Cannot log in")
+          .catch(() => {
+            // console.log("Cannot log in")
           })
       }
       login()
