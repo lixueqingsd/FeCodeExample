@@ -3,7 +3,6 @@ const express = require('express')
 // creating an express instance
 const app = express()
 
-const cookieSession = require('cookie-session')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 
@@ -14,11 +13,29 @@ const publicRoot = '/Users/laminsanneh/Sites/jscrambler/vueauth-final/vueauthcli
 app.use(express.static(publicRoot))
 
 app.use(bodyParser.json())
+
+// cookei session
+const cookieSession = require('cookie-session')
 app.use(cookieSession({
     name: 'mysession',
     keys: ['vueauthrandomkey'],
     maxAge: 24 * 60 * 60 * 1000 // 24 hours 
   }))
+
+// use redis session
+const redis = require('redis')
+const session = require('express-session')
+ 
+let RedisStore = require('connect-redis')(session)
+let client = redis.createClient()
+ 
+app.use(
+  session({
+    store: new RedisStore({ client }),
+    secret: 'Redis Secret Here',
+    resave: false,
+  })
+)
 
 app.use(passport.initialize());
 app.use(passport.session());

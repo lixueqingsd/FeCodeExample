@@ -11,10 +11,12 @@
 </template>
 
 <script>
+import router from "./router"
+import axios from "axios"
 export default {
   name: "App",
   methods: {
-    logout: function (e) {
+    logout: function () {
       axios.get("/api/logout")
         .then(() => {
           router.push("/")

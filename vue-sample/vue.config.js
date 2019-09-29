@@ -1,4 +1,5 @@
 const isProduction = process.env.NODE_ENV === 'production';
+// const isProduction = true;
 module.exports = {
   runtimeCompiler: true,
   configureWebpack: config => {
@@ -7,7 +8,8 @@ module.exports = {
       config.externals = {
         'vue': 'Vue',
         'vue-router': 'VueRouter',
-        'moment': 'moment'
+        'moment': 'moment',
+        'axios': 'axios'
       }
       
     }
