@@ -3,7 +3,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   runtimeCompiler: true,
   configureWebpack: config => {
-    if (isProduction) {
+    // if (isProduction) {
       
       config.externals = {
         'vue': 'Vue',
@@ -12,7 +12,7 @@ module.exports = {
         'axios': 'axios'
       }
       
-    }
+    // }
   },
   devServer: {
     /*

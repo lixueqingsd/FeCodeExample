@@ -9,7 +9,7 @@ const passport = require('passport')
 // getting the local authentication type
 const LocalStrategy = require('passport-local').Strategy
 
-const publicRoot = '/Users/laminsanneh/Sites/jscrambler/vueauth-final/vueauthclient/dist'
+const publicRoot = 'D:\\vscode\\FeCodeExample\\vue-sample\\dist'
 app.use(express.static(publicRoot))
 
 app.use(bodyParser.json())
